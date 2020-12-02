@@ -25,11 +25,12 @@ routes.delete('/animal/:id', indexController.deleteAnimal)
 
 //Router Users
 //Router Get Users
-routes.get('/user', jwtMiddleware, usersController.getUsers)
+routes.get('/user', usersController.getUsers)
 //Router Creted user
 routes.post('/user', usersController.createUser)
 //Router With on login
 routes.post('/user/login', usersController.login)
+routes.get('/user/profile/:id', jwtMiddleware, usersController.getUsers)
 
 //--------------------------------------PETSHOP ROUTERS -----------------------------------//
 

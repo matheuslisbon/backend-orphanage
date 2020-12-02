@@ -1,6 +1,5 @@
 const Animals = require("../models/AnimalsOrphanages")
 
-
 exports.createAnimal = async(req, res)=>{
   const {nome, idade, especie, raca, fotos, user_id, } = req.body
   if(!nome || !idade || !especie || !raca || !user_id){

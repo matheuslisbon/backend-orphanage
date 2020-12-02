@@ -4,7 +4,7 @@ module.exports = (req, res, next) =>{
   const {authorization} = req.headers
   
   if(!authorization) {
-    return res.status(401).json('Login required')
+    return res.status(403).json('Login required')
   }
 
   const [texto, token] = authorization.split(' ')
@@ -15,6 +15,6 @@ module.exports = (req, res, next) =>{
     req.userId = id
     next()
   } catch (error) {
-    return res.status(401).json('Token Invalid')
+    return res.status(403).json('Token Invalid')
   }
 } 

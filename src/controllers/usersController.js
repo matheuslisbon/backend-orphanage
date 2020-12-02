@@ -9,9 +9,24 @@ function generateToken ( params = {}){
   })
 }
 
-exports.getUsers = (req, res)=>{
-  console.log('')
-  return res.status(200).send('Hellow Users Routes')
+exports.getUsers = async(req, res)=>{
+  const id = req.params.id
+  if(!id){
+    return res.status(400).send('Error')
+  }
+  const data = await User.findById(id)
+    .then(data => {
+      if(data){
+              return res.status(200).send(data)
+      }else{
+        return res.send('User not Found').status(400)
+      }
+
+    })
+    .catch(err =>{
+      return res.send('Error').status(400)
+    })
+
 }
 
 exports.createUser = async(req, res)=>{

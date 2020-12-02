@@ -4,8 +4,6 @@ const app = express()
 const routes = require('./src/routes')
 const cors = require('cors')
 const mongoose = require('mongoose')
-console.log(process.env.DB_NAME)
-
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use(cors())
