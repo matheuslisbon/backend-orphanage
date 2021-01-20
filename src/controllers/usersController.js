@@ -58,7 +58,6 @@ exports.login = async(req, res)=>{
     } else{
       return res.status(403).json('Not Correct Password')
     }
-
   })
   .catch(e =>{
     return res.status(403).send('Error Login')
